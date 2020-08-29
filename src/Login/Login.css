@@ -1,0 +1,18 @@
+.loginBlock {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+.loginButton {
+  background-color: skyblue;
+  color: white;
+  margin-top: 5px;
+  outline: none;
+  padding: 10px;
+  border: 1px solid skyblue;
+}
+.inpFields {
+  margin-top: 5px;
+  outline: none;
+  padding: 10px;
+}
