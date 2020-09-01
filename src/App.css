@@ -1,5 +1,20 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: auto; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.mainBlock {
+  border: 1px solid lightgray;
+  padding: 3em;
+  width: 35%;
 }
 
 .App-logo {
@@ -35,4 +50,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  padding: 10px;
+  background-color: darkblue;
+  color: white;
+  outline: none;
+  border: 1px solid darkblue;
+  border-radius: 5px;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link, Redirect, withRouter } from "react-router-dom";
 import "./Register";
 
 export class Register extends React.Component {
@@ -14,6 +14,7 @@ export class Register extends React.Component {
         <input type="text" placeholder="Username/Email" className="inpFields" />
         <input type="password" placeholder="Password" className="inpFields" />
         <button className="loginButton">Register</button>
+        <Link to="/">Login</Link>
       </div>
     );
   }
