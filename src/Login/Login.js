@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Redirect, withRouter } from "react-router-dom";
 import "./Login.css";
+import axios from "axios";
 import "../Dashboard/Dashboard";
 
 export class Login extends React.Component {
@@ -8,22 +9,32 @@ export class Login extends React.Component {
     super(props);
   }
   state = {
-    username: "",
-    password: "",
-    redirect: false,
+    email: "atul@yopmail.com",
+    password: 123456,
+    role: 4,
   };
 
   loginHandler(e) {
-    console.log("PROPS", this.props, this.state);
-    if (this.state.username === "admin" && this.state.password === "admin") {
-      this.props.history.push("/dashboard");
-    } else {
-      alert("Log IN Failed");
-      this.setState({
-        username: "",
-        password: "",
+    let data = {
+      email: "atul@yopmail.com",
+      password: "123456",
+      role: 4,
+    };
+    console.log("LOFGIN", this.state, data);
+
+    axios
+      .post("https://mean.stagingsdei.com:6047/user/login", {
+        header: {
+          "Content-Type": "application/json",
+        },
+        data,
+      })
+      .then(function (response) {
+        console.log("RESP", response);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-    }
   }
 
   render() {
@@ -34,11 +45,11 @@ export class Login extends React.Component {
           type="text"
           placeholder="Username/Email"
           className="inpFields"
-          name={this.state.username}
+          name={this.state.email}
           onChange={(e) => {
-            this.setState({ username: e.target.value });
+            this.setState({ email: e.target.value });
           }}
-          value={this.state.username}
+          value={this.state.email}
         />
         <input
           type="password"
